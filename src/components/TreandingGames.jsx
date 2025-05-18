@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 function TreandingGames({ gameList }) {
   useEffect(() => {
     console.log(gameList);
-  }, [gameList]); // ✅ Added dependency to reflect updates
+  }, [gameList]); 
 
   return (
     <div className="mt-5">

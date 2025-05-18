@@ -4,6 +4,7 @@ import GlobalApi from "../Services/GlobalApi";
 import Banner from "../components/Banner";
 import TreandingGames from "../components/TreandingGames";
 import GamesByGenreId from "../components/GamesByGenreId";
+import Footer from "../components/Footer";
 
 function Home() {
   const [allGameList, setAllGameList] = useState([]);
@@ -32,6 +33,7 @@ function Home() {
     })
   }
   return (
+    <>
     <div className="grid grid-cols-4 px-8">
       <div className="h-full hidden md:block">
         <GenreList genreId={(genreId)=>getGameListByGenresId(genreId)}
@@ -43,14 +45,18 @@ function Home() {
         {allGameList?.length > 0&&gameListByGenres.length>0? (
           <div className="mb-5">
           <Banner gameBanner={allGameList[0]} />
-          <TreandingGames gameList={allGameList}/>
+          {/* <TreandingGames gameList={allGameList}/> */}
           <GamesByGenreId gameList={gameListByGenres}
           selectedGenresName={selectedGenresName}
           />
           </div>
         ) : null}{" "}
+        <TreandingGames gameList={allGameList}/> 
       </div>
     </div>
+        <Footer/>
+    </>
+
   );
 }
 
